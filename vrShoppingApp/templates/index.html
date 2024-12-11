@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Shopping Experience</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            z-index: 1;
+        }
+    </style>
+    <script>
+        AFRAME.registerComponent('show-info', {
+            schema: {
+                name: {type: 'string', default: ''},
+                description: {type: 'string', default: ''}
+            },
+            init: function () {
+                const infoCard = document.querySelector('#product-info-card');
+                this.el.addEventListener('mouseenter', () => {
+                    infoCard.setAttribute('value', `${this.data.name}: ${this.data.description}`);
+                    infoCard.setAttribute('visible', true);
+                });
+                this.el.addEventListener('mouseleave', () => {
+                    infoCard.setAttribute('visible', false);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>VR Shopping Experience</h1>
+    </header>
+    <main>
+        <a-scene>
+            <!-- Define assets -->
+            <a-assets>
+                <img src="static/images/vrImage.jpg" id="360photo">
+                <!-- Product GLTF Models -->
+                <a-asset-item id="product1-model" src="static\images\calico_electronico.glb"></a-asset-item>
+                <a-asset-item id="product2-model" src="static\images\electronics_kitchen.glb"></a-asset-item>
+                <a-asset-item id="product3-model" src="static\images\old_electronic_bell.glb"></a-asset-item>
+            </a-assets>
+
+            <!-- 360° Background -->
+            <a-sky src="#360photo" rotation="0 -130 0"></a-sky>
+
+            <!-- Floating Info Card Always Facing the User -->
+            <a-plane id="info-card-bg" position="0 1.5 -2" width="4" height="1.5" color="#000" opacity="0.7" 
+                     look-at="#camera"></a-plane>
+            <a-text id="product-info-card" value="" align="center" position="0 1.5 -2" color="#fff" 
+                    visible="false" width="4" wrap-count="50" look-at="#camera"></a-text>
+
+            <!-- Grounded and Rotating Products with more spacing -->
+            <a-entity id="product1" 
+                      gltf-model="#product1-model" 
+                      position="-8 0.5 -6" 
+                      rotation="0 45 0" 
+                      scale="0.8 0.8 0.8"
+                      show-info="name: Product 1; description: calico_electronico"
+                      animation="property: rotation; to: 0 405 0; dur: 6000; loop: true"></a-entity>
+
+            <a-entity id="product2" 
+                      gltf-model="#product2-model" 
+                      position="0 0.5 -6" 
+                      rotation="0 45 0" 
+                      scale="0.8 0.8 0.8"
+                      show-info="name: Product 2; description: electronics_kitchen"
+                      animation="property: rotation; to: 0 405 0; dur: 6000; loop: true"></a-entity>
+
+            <a-entity id="product3" 
+                      gltf-model="#product3-model" 
+                      position="8 0.5 -6" 
+                      rotation="0 45 0" 
+                      scale="0.8 0.8 0.8"
+                      show-info="name: Product 3; description: old_electronic_bell."
+                      animation="property: rotation; to: 0 405 0; dur: 6000; loop: true"></a-entity>
+
+            <!-- Camera with movement and cursor -->
+            <a-entity id="camera" camera look-controls wasd-controls position="0 1.6 0">
+                <a-entity cursor="fuse: true; fuseTimeout: 500"
+                          position="0 0 -1"
+                          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                          material="color: black; shader: flat">
+                </a-entity>
+            </a-entity>
+
+        </a-scene>
+    </main>
+</body>
+</html>
