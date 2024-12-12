@@ -1,5 +1,3 @@
----
-
 # Dual-AI Experience: Immersive VR Shopping and Intelligent Text-to-Speech System
 
 ## Overview
