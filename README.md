@@ -4,7 +4,7 @@
 
 ## Overview
 
-This project combines the cutting-edge technologies of Virtual Reality (VR) and Artificial Intelligence (AI) to deliver an innovative and accessible e-commerce experience. The platform consists of two key systems:
+This project combines the cutting-edge technologies of Virtual Reality (VR) and Artificial Intelligence (AI) to deliver an innovative and accessible e-commerce experience. The platform consists of two key systems
 
 1. **Virtual Reality Shopping App**: An immersive platform allowing users to explore and interact with 3D models of products in a 360-degree virtual environment.
 2. **Text-to-Speech Assistant**: An intelligent tool that enhances accessibility by providing auditory feedback and voice-driven navigation for visually impaired users.
