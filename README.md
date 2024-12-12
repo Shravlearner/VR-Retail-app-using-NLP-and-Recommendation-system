@@ -82,7 +82,7 @@ By integrating these technologies, the project aims to redefine usability, inclu
    ```bash
    flask run
    ```
-
+Note: There are seperate flask apps in the textToSpeech in vrShoppingApp folder. They must be run individually. Im working on integrating the project in a single flask app.
 ---
 
 ## Usage
@@ -99,18 +99,65 @@ By integrating these technologies, the project aims to redefine usability, inclu
 ## Project Structure
 
 ```plaintext
-Dual-AI-Experience/
-├── app/
-│   ├── static/          # Static assets (CSS, JS, images)
-│   ├── templates/       # HTML templates
-│   ├── routes.py        # Flask routes
-│   ├── models.py        # Database models
-│   └── utils.py         # Utility functions
-├── data/
-│   ├── products.csv     # Product dataset
-├── requirements.txt     # Python dependencies
-├── README.md            # Project documentation
-└── LICENSE              # License information
+VR-Retail-app-using-NLP-and-Recommendation-system/
+C:\Users\USER\OneDrive\Documents\MPI\VRAppUsingNLPAndRecommendationSystem/
+├── requirements.txt
+├── textToSpeech/
+│   ├── README.md
+│   ├── __pycache__/
+│   │   ├── __init__.cpython-311.pyc
+│   │   ├── app.cpython-311.pyc
+│   ├── app.py
+│   ├── models/
+│   │   ├── clean_data.csv
+│   │   ├── trending_products.csv
+│   ├── static/
+│   │   ├── img/
+│   │   │   ├── img_1.png
+│   │   │   ├── img_2.png
+│   │   │   ├── img_3.png
+│   │   │   ├── img_4.png
+│   │   │   ├── img_5.png
+│   │   │   ├── img_6.png
+│   │   │   ├── img_7.png
+│   │   │   ├── img_8.png
+│   │   ├── v.mp4
+│   ├── templates/
+│   │   ├── index.html
+│   │   ├── main.html
+│   ├── venv/
+│   │   ├── marketing_sample_for_walmart_com-walmart_com_product_review__20200701_20201231__5k_data.tsv
+│   │   ├── recommendations code.ipynb
+├── vrShoppingApp/
+│   ├── __pycache__/
+│   │   ├── __init__.cpython-311.pyc
+│   │   ├── app.cpython-311.pyc
+│   │   ├── routes.cpython-311.pyc
+│   ├── app.py
+│   ├── static/
+│   │   ├── images/
+│   │   │   ├── calico_electronico.glb
+│   │   │   ├── electronics_kitchen.glb
+│   │   │   ├── electronics_kitchen_gltf/
+│   │   │   │   ├── scene.bin
+│   │   │   │   ├── scene.gltf
+│   │   │   │   ├── textures/
+│   │   │   │   │   ├── Cutlery_baseColor.png
+│   │   │   │   │   ├── Kitchen_baseColor.jpeg
+│   │   │   │   │   ├── Metal_02_baseColor.jpeg
+│   │   │   │   │   ├── Metal_03_baseColor.jpeg
+│   │   │   │   │   ├── Metal_04_baseColor.jpeg
+│   │   │   │   │   ├── Metal_08_baseColor.jpeg
+│   │   │   │   │   ├── Plastic_03_baseColor.png
+│   │   │   │   │   ├── Plastic_04_baseColor.jpeg
+│   │   │   │   │   ├── Plastic_05_baseColor.png
+│   │   │   │   │   ├── Plastic_06_baseColor.jpeg
+│   │   │   ├── electronics_kitchen_gltf.zip
+│   │   │   ├── old_electronic_bell.glb
+│   │   │   ├── vrImage.jpg
+│   │   ├── style.css
+│   ├── templates/
+│   │   ├── index.html
 ```
 
 ---
@@ -131,11 +178,3 @@ Dual-AI-Experience/
 - Scale the platform for larger product catalogs and datasets.
 
 ---
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
-
-Feel free to customize this template further based on your specific implementation and requirements!
